@@ -6,13 +6,13 @@ import random
 def send(person1, person2, voice,outfile):
 	message = "%s your secret snowflake target is %s" % (person1[0], person2[0])
 	outfile.write("%s,%s,%s\n" % (person1[0],person2[0],person1[1]))
-	#voice.send_sms(person1[1],message)
+	voice.send_sms(person1[1],message)
 
 def checkGroupings(people,enemies):
 	for i in xrange(0, len(people)):
 		grouping="%s:%s" % (people[i],people[i-1])
-		if grouping in enemies:
-			print(groupings)
+		reverse="%s:%s" % (people[i-1],people[i])
+		if grouping in enemies or reverse in enemies:
 			return False
 	return True
 
